@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PrimeNest Realty</title>
+  <style>
+    /* ---------- BASE ---------- */
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:sans-serif;line-height:1.6;background:#f9fafb;color:#111}
+    a{text-decoration:none;color:#0ea5e9}
+    h1,h2,h3{margin-bottom:.5em}
+    section{padding:60px 20px}
+    .container{max-width:1100px;margin:auto}
+
+    /* ---------- NAV ---------- */
+    header{position:sticky;top:0;z-index:50;background:#fff;box-shadow:0 2px 5px rgba(0,0,0,0.08)}
+    nav{display:flex;justify-content:space-between;align-items:center;padding:15px 20px}
+    nav .logo{font-weight:800;color:#0ea5e9;font-size:1.3rem}
+    nav ul{display:flex;gap:20px;list-style:none}
+    nav a:hover{color:#0284c7}
+
+    /* ---------- HERO ---------- */
+    .hero{display:grid;gap:20px;align-items:center}
+    .hero img{width:100%;border-radius:16px;box-shadow:0 8px 20px rgba(0,0,0,.1)}
+    .hero h1{font-size:2.4rem}
+    .hero p{color:#444;margin:15px 0}
+    .btn{display:inline-block;padding:12px 20px;border-radius:8px;background:#0ea5e9;color:#fff;font-weight:600;box-shadow:0 4px 12px rgba(14,165,233,.3)}
+    .btn:hover{background:#0284c7}
+
+    /* ---------- LISTINGS ---------- */
+    .grid{display:grid;gap:20px}
+    .listings{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.08);transition:transform .2s}
+    .card:hover{transform:translateY(-6px)}
+    .card img{width:100%;height:180px;object-fit:cover}
+    .card-body{padding:16px}
+    .price{font-weight:700;color:#0284c7;margin:.5em 0}
+    .card .btn{font-size:.9rem;padding:8px 14px}
+
+    /* ---------- ABOUT ---------- */
+    .about{background:#f1f5f9;border-radius:14px}
+    .about p{max-width:700px;margin:10px auto}
+
+    /* ---------- AGENTS ---------- */
+    .agents{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .agent{perspective:1000px}
+    .agent-inner{position:relative;transform-style:preserve-3d;transition:transform .6s}
+    .agent:hover .agent-inner{transform:rotateY(180deg)}
+    .agent-front,.agent-back{
+      position:absolute;inset:0;padding:20px;border-radius:14px;backface-visibility:hidden;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 6px 16px rgba(0,0,0,.08)
+    }
+    .agent-front{background:#fff}
+    .agent-front img{width:100%;height:200px;object-fit:cover;border-radius:12px;margin-bottom:12px}
+    .agent-back{background:#0ea5e9;color:#fff;transform:rotateY(180deg)}
+
+    /* ---------- TESTIMONIALS ---------- */
+    .testimonials{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+    .quote{background:#fff;border-radius:14px;padding:20px;box-shadow:0 6px 18px rgba(0,0,0,.08);position:relative}
+    .quote::before{content:"“";font-size:3rem;color:#0ea5e9;position:absolute;top:10px;left:15px;opacity:.2}
+    .quote footer{margin-top:10px;font-weight:700;color:#0284c7}
+
+    /* ---------- CONTACT ---------- */
+    .contact-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+    form{background:#fff;padding:20px;border-radius:14px;box-shadow:0 6px 16px rgba(0,0,0,.08)}
+    label{font-weight:600;display:block;margin:10px 0 4px}
+    input,textarea{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:8px;font:inherit}
+    input:focus,textarea:focus{border-color:#0ea5e9;outline:none;box-shadow:0 0 0 3px rgba(14,165,233,.25)}
+
+    /* ---------- FOOTER ---------- */
+    footer{background:#0f172a;color:#94a3b8;text-align:center;padding:20px;margin-top:40px}
+    footer a{color:#e2e8f0;margin:0 10px}
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="container">
+    <div class="logo">PrimeNest</div>
+    <ul>
+      <li><a href="#listings">Listings</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#agents">Agents</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero container">
+  <div>
+    <h1>Find Your Dream Home</h1>
+    <p>Browse curated properties and connect with our trusted agents today.</p>
+    <a href="#listings" class="btn">Browse Listings</a>
+  </div>
+  <img src="https://picsum.photos/600/400?home" alt="Modern home">
+</section>
+
+<!-- LISTINGS -->
+<section id="listings">
+  <div class="container">
+    <h2>Featured Listings</h2>
+    <div class="grid listings">
+      <div class="card">
+        <img src="https://picsum.photos/400/200?house1" alt="">
+        <div class="card-body">
+          <h3>3BR Family Home</h3>
+          <p class="price">$429,000</p>
+          <p>124 Maple Street</p>
+          <a href="#contact" class="btn">Book a Tour</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://picsum.photos/400/200?house2" alt="">
+        <div class="card-body">
+          <h3>Cityview Apartment</h3>
+          <p class="price">$1,650/mo</p>
+          <p>19 Riverside Ave</p>
+          <a href="#contact" class="btn">Apply Now</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://picsum.photos/400/200?house3" alt="">
+        <div class="card-body">
+          <h3>Suburban Retreat</h3>
+          <p class="price">$589,000</p>
+          <p>78 Birch Lane</p>
+          <a href="#contact" class="btn">Book a Tour</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="container">
+    <h2>About Us</h2>
+    <p>PrimeNest Realty is dedicated to connecting people with their perfect homes. With years of experience and a team of local experts, we ensure every transaction is smooth and transparent.</p>
+  </div>
+</section>
+
+<!-- AGENTS -->
+<section id="agents">
+  <div class="container">
+    <h2>Meet Our Agents</h2>
+    <div class="grid agents">
+      <div class="agent">
+        <div class="agent-inner">
+          <div class="agent-front">
+            <img src="https://picsum.photos/300/200?agent1" alt="">
+            <h3>Mia Carter</h3>
+            <p>Senior Agent</p>
+          </div>
+          <div class="agent-back">
+            <p>Specialist in family homes and school zones.</p>
+            <p>mia@primenest.com</p>
+          </div>
+        </div>
+      </div>
+      <div class="agent">
+        <div class="agent-inner">
+          <div class="agent-front">
+            <img src="https://picsum.photos/300/200?agent2" alt="">
+            <h3>Leo Patel</h3>
+            <p>Leasing Expert</p>
+          </div>
+          <div class="agent-back">
+            <p>Focus on city rentals and relocations.</p>
+            <p>leo@primenest.com</p>
+          </div>
+        </div>
+      </div>
+      <div class="agent">
+        <div class="agent-inner">
+          <div class="agent-front">
+            <img src="https://picsum.photos/300/200?agent3" alt="">
+            <h3>Sofia Nguyen</h3>
+            <p>Buyer’s Advocate</p>
+          </div>
+          <div class="agent-back">
+            <p>Helps first-home buyers and investors.</p>
+            <p>sofia@primenest.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <h2>Testimonials</h2>
+    <div class="grid testimonials">
+      <blockquote class="quote">
+        <p>“PrimeNest made buying our first home simple and stress-free.”</p>
+        <footer>— Priya & Arjun</footer>
+      </blockquote>
+      <blockquote class="quote">
+        <p>“Our apartment was rented in under a week. Great experience!”</p>
+        <footer>— Kavya S.</footer>
+      </blockquote>
+      <blockquote class="quote">
+        <p>“Professional, transparent, and genuinely caring agents.”</p>
+        <footer>— Daniel R.</footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <h2>Contact Us</h2>
+    <div class="contact-grid">
+      <form>
+        <label for="name">Name</label>
+        <input id="name" type="text" placeholder="Your name" required>
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="you@example.com" required>
+        <label for="msg">Message</label>
+        <textarea id="msg" rows="4" placeholder="I'm interested in the Maple Street home"></textarea>
+        <button type="submit" class="btn">Send</button>
+      </form>
+      <div>
+        <h3>PrimeNest Realty</h3>
+        <p>101 Market Plaza, Suite 400<br>Springfield, ST 12345</p>
+        <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+        <p><strong>Email:</strong> hello@primenest.com</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 PrimeNest Realty. All rights reserved.</p>
+  <p><a href="#">Privacy</a> · <a href="#">Terms</a></p>
+</footer>
+
+</body>
+</html>
+
